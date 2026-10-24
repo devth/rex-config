@@ -1,0 +1,12 @@
+{
+  "port": 4319,
+  "token": "GENERATE_LOCALLY_DO_NOT_USE_THIS_EXAMPLE",
+  "origins": [
+    "http://127.0.0.1:4319",
+    "http://localhost:4319",
+    "https://YOUR-DEVICE.YOUR-TAILNET.ts.net"
+  ],
+  "rexBin": "/Applications/Rex Beta.app/Contents/Helpers/Rex Server.rex/Contents/MacOS/rex",
+  "rexServer": "unix:///Users/YOUR-USERNAME/Library/Application Support/rex/server.sock",
+  "owner": "YOUR-TAILSCALE-LOGIN"
+}
