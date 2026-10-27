@@ -59,6 +59,31 @@ preference backup is available at the path printed by the script, but importing
 the whole backup also restores unrelated settings from that moment. Keep backups
 out of Git and do not blindly import them over newer settings.
 
+## Key bindings
+
+`init.lua` contains the portable Rex shortcuts:
+
+| Shortcut | Action |
+| --- | --- |
+| ⌘R | Rename Session |
+| ⌘⇧R | Rename Tab |
+
+Keep the live config symlinked to this repo so edits here apply to Rex. From the
+repo root, with `REX_BIN` set as above:
+
+```sh
+"$REX_BIN" config check "$PWD/init.lua"
+mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/rex"
+ln -s "$PWD/init.lua" "${XDG_CONFIG_HOME:-$HOME/.config}/rex/init.lua"
+"$REX_BIN" config reload
+```
+
+If `init.lua` already exists at the destination, back it up and merge any custom
+bindings before replacing it; the command deliberately does not overwrite it.
+An explicit `REX_CONFIG` environment variable overrides this default location.
+Reload after editing; no app restart is needed. To undo, remove only the symlink
+and restore your previous file, if any, then reload.
+
 ## Optional private mobile bridge
 
 The bridge mirrors existing Pi processes in Rex. It does not start another
@@ -114,6 +139,7 @@ The example's Rex app path may need updating if the app layout changes.
 ```sh
 bash -n scripts/setup-rex.sh
 python3 -m json.tool bridge/config.example.json >/dev/null
+"$REX_BIN" config check init.lua
 ```
 
 Theme import and preference writes are intentionally manual, not part of
