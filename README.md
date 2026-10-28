@@ -65,8 +65,8 @@ out of Git and do not blindly import them over newer settings.
 
 | Shortcut | Action |
 | --- | --- |
-| ⌘R | Rename Session |
-| ⌘⇧R | Rename Tab |
+| ⌘R | Rename Tab |
+| ⌘⇧R | Rename Session |
 
 Keep the live config symlinked to this repo so edits here apply to Rex. From the
 repo root, with `REX_BIN` set as above:
